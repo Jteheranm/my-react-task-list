@@ -1,5 +1,3 @@
-import React from "react";
-
 const Header = () => {
   return <h1> LISTA DE TAREAS </h1>;
 };

@@ -1,4 +1,5 @@
-import React from "react";
+import PropTypes from "prop-types";
+
 const Task = ({ task }) => {
   return (
     <div>
@@ -6,6 +7,13 @@ const Task = ({ task }) => {
       <span>{task.name}</span>
     </div>
   );
+};
+
+Task.propTypes = {
+  task: PropTypes.shape({
+    completed: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Task;
