@@ -1,0 +1,28 @@
+.app-navbar {
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: dodgerblue;
+}
+
+.app-navbar > h1 {
+  color: white;
+}
+
+.app-navbar > ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-navbar > ul > li > a {
+  color: white;
+}
+
+.app-navbar .active {
+  color: black;
+}

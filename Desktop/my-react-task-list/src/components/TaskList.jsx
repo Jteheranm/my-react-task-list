@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Task from "./Task";
-import styles from "./TaskList.module.css";
+import styles from "../assets/styles/TaskList.module.css";
 
 function TaskList({ taskList, onComplete, onDelete }) {
   const taskListQantity = taskList.length;

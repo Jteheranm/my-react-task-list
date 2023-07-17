@@ -1,5 +1,4 @@
-import styles from "./Header.module.css";
-import { BsPlus } from "react-icons/bs";
+import styles from "../assets/styles/Header.module.css";
 import todoapp from "../assets/todoapp.png";
 import { useState } from "react";
 
@@ -70,10 +69,7 @@ function Header({ onAddTask }) {
         {formValidation.error ? (
           <span className={styles.error}>{formValidation.errorMessage}</span>
         ) : null}
-        <button>
-          <BsPlus size={25} />
-          <p>NEX</p>
-        </button>
+        <button>NEX</button>
       </form>
     </header>
   );
