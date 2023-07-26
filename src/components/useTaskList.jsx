@@ -7,9 +7,7 @@ function useTaskList() {
 
   function loadSavedTaskList() {
     const saved = localStorage.getItem(localStorageKey);
-    if (saved) {
-      setTaskList(JSON.parse(saved));
-    }
+    if (saved) setTaskList(JSON.parse(saved));
   }
 
   useEffect(() => {
@@ -21,12 +19,13 @@ function useTaskList() {
     localStorage.setItem(localStorageKey, JSON.stringify(newTaskList));
   }
 
-  function addTask(taskTitle) {
+  function addTask(taskTitle, taskDescription) {
     setTaskListSave([
       ...taskList,
       {
         id: crypto.randomUUID(),
         title: taskTitle,
+        description: taskDescription,
         isCompleted: false,
       },
     ]);

@@ -1,6 +1,7 @@
-import styles from "../assets/styles/Header.module.css";
-import todoapp from "../assets/todoapp.png";
 import { useState } from "react";
+import { Button, Input } from "@chakra-ui/react";
+import "../assets/styles/TaskForm.css";
+import todoapp from "../assets/todoapp.png";
 
 // eslint-disable-next-line react/prop-types
 function Header({ onAddTask }) {
@@ -45,21 +46,26 @@ function Header({ onAddTask }) {
   };
 
   return (
-    <header className={styles.header}>
-      <img src={todoapp} width={160} />
+    <header className="task-form">
+      <img src={todoapp} width={160} className="task-form-img" />
 
-      <form onSubmit={handleSubmit} className={styles.newTaskForm}>
-        <input
-          className={styles.inputTitle}
-          placeholder="Agregar una nueva tarea"
+      <form onSubmit={handleSubmit} className="newTaskForm">
+        <Input
+          placeholder="Título de la tarea"
+          colorScheme="primaryColor.100"
+          focusBorderColor="primaryColor.100"
+          variant="flushed"
+          size="sm"
           type="text"
           value={title}
           onChange={onChangeTitle}
         />
-
-        <input
-          className={styles.inputDescription}
-          placeholder="Agregar una descripción de tarea"
+        <Input
+          placeholder="Descripción de la tarea"
+          colorScheme="primaryColor.100"
+          focusBorderColor="primaryColor.100"
+          variant="flushed"
+          size="sm"
           type="text"
           value={description}
           onChange={onChangeDescription}
@@ -67,9 +73,12 @@ function Header({ onAddTask }) {
         />
 
         {formValidation.error ? (
-          <span className={styles.error}>{formValidation.errorMessage}</span>
+          <span className="error">{formValidation.errorMessage}</span>
         ) : null}
-        <button>NEX</button>
+
+        <Button type="submit" colorScheme="messenger" size="sm">
+          Agregar tarea
+        </Button>
       </form>
     </header>
   );

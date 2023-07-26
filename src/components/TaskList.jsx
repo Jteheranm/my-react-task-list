@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Task from "./Task";
+import { Accordion } from "@chakra-ui/react";
 import styles from "../assets/styles/TaskList.module.css";
 
 function TaskList({ taskList, onComplete, onDelete }) {
@@ -23,14 +24,16 @@ function TaskList({ taskList, onComplete, onDelete }) {
       </header>
 
       <div className={styles.list}>
-        {taskList.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            onComplete={onComplete}
-            onDelete={onDelete}
-          />
-        ))}
+        <Accordion allowToggle>
+          {taskList.map((task) => (
+            <Task
+              key={task.id}
+              task={task}
+              onComplete={onComplete}
+              onDelete={onDelete}
+            />
+          ))}
+        </Accordion>
       </div>
     </section>
   );
@@ -39,7 +42,7 @@ function TaskList({ taskList, onComplete, onDelete }) {
 TaskList.propTypes = {
   taskList: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       // Otros campos de tarea que debes especificar aquí
     })
   ).isRequired,

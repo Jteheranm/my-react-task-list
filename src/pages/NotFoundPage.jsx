@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -7,7 +7,7 @@ export default function ErrorPage() {
 
   return (
     <div id="notfound">
-      <Navbar />
+      <Header />
 
       <div className="notfound">
         <div className="notfound-404">
