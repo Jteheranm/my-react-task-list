@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins";
   list-style: none;
   outline: none !important;
 }
@@ -13,7 +12,10 @@ html,
 .main-container {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+}
+
+.main-container {
+  padding: 5rem;
 }
 
 body {
@@ -21,54 +23,39 @@ body {
   min-height: 100vh;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
-  overflow: auto;
-  padding-bottom: 3rem;
-  background: linear-gradient(60deg, rgb(82, 67, 170), rgb(237, 80, 180), cyan);
-}
-
 button {
   cursor: pointer;
 }
 
-.completed-text {
-  text-decoration: line-through;
+.HeaderContainer {
+  width: 100%;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-image: url('../bici.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
 }
 
-/*Para el scroll*/
-/* Tamaño del scroll */
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.header-title {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
 }
 
- /* Estilos barra (thumb) de scroll */
-*::-webkit-scrollbar-thumb {
-  background: gray;
-  /* border-radius: 4px; */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 5rem;
 }
 
-*::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
- /* Estilos track de scroll */
-*::-webkit-scrollbar-track {
-  background: #dddddd;
-  /* border-radius: 5px; */
-}
-
-*::-webkit-scrollbar-track:hover, 
-*::-webkit-scrollbar-track:active {
-  background: #d4d4d4;
+.button-group.column-view {
+  flex-direction: column;
 }
