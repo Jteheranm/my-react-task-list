@@ -1,4 +1,4 @@
-import { useToast } from "@chakra-ui/react";
+import { useToast, useColorMode } from "@chakra-ui/react";
 import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
 import useTaskList from "../components/useTaskList";
@@ -31,8 +31,10 @@ function App() {
     deleteTaskById(taskId);
   };
 
+  const { colorMode } = useColorMode();
+
   return (
-    <div className="main-container">
+    <div className={`main-container ${colorMode}`}>
       <Header />
 
       <div className="task-section-container">

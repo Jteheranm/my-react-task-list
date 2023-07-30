@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Input } from "@chakra-ui/react";
+import { Button, Input, useColorMode } from "@chakra-ui/react";
 import "../assets/styles/TaskForm.css";
 import todoapp from "../assets/todoapp.png";
 
@@ -45,8 +45,10 @@ function Header({ onAddTask }) {
     setDescription(value);
   };
 
+  const { colorMode } = useColorMode();
+
   return (
-    <header className="task-form">
+    <header className={`task-form ${colorMode}`}>
       <img src={todoapp} width={160} className="task-form-img" />
 
       <form onSubmit={handleSubmit} className="newTaskForm">

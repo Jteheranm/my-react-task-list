@@ -9,14 +9,18 @@ import {
   Button,
   CardFooter,
   Divider,
+  useColorMode,
 } from "@chakra-ui/react";
 import { FaWhatsapp, FaLinkedin, FaGithub } from "react-icons/fa";
 import profileImg from "../assets/profileImg.jpg";
 import "../assets/styles/home.css";
 
 const HomePage = () => {
+
+  const { colorMode } = useColorMode();
+
   return (
-    <div className="main-container">
+    <div className={`main-container ${colorMode}`}>
       <Header />
 
       <Card maxW="sm">

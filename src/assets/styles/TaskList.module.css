@@ -6,8 +6,13 @@
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.09);
   align-self: center;
   justify-self: flex-start;
-  background-color: white;
   border-radius: 7px;
+}
+.dark {
+  background-color: #2d3748;
+}
+.light {
+  background-color: white;
 }
 
 .header {

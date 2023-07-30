@@ -7,6 +7,7 @@ import {
   StackDivider,
   Box,
   Text,
+  useColorMode,
 } from "@chakra-ui/react";
 import {
   SiReact,
@@ -18,8 +19,11 @@ import { TbBrandVite } from "react-icons/tb";
 import Header from "../components/Header";
 
 const SobreNosotrosPage = () => {
+
+  const { colorMode } = useColorMode();
+
   return (
-    <div className="main-container">
+    <div className={`main-container ${colorMode}`}>
       <Header />
 
       <Card>

@@ -1,5 +1,14 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Tabs, TabList, Tab, Stack, Button } from "@chakra-ui/react";
+import {
+  Tabs,
+  TabList,
+  Tab,
+  Stack,
+  Button,
+  Tooltip,
+  useColorMode,
+} from "@chakra-ui/react";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
 
 import "../assets/styles/Navbar.css";
 
@@ -16,9 +25,23 @@ const Header = () => {
     linkElement.click();
   };
 
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <nav className="app-navbar">
-      <h1 className="navbar-title">LISTA DE TAREAS App</h1>
+      <Tooltip
+        label={`Activar modo ${colorMode === "light" ? 'oscuro' : 'claro' }`}
+      >
+        <div className={`colormode-btn`} onClick={toggleColorMode}>
+          {colorMode !== "light" ? (
+            <MdLightMode color="black" />
+          ) : (
+            <MdDarkMode color="black" />
+          )}
+        </div>
+      </Tooltip>
+
+      <h1 className={`navbar-title ${colorMode}`}>LISTA DE TAREAS App</h1>
 
       <Tabs
         id="no-responsive-tab"
@@ -45,12 +68,7 @@ const Header = () => {
         </TabList>
       </Tabs>
 
-      <Stack
-        id="responsive-tab"
-        spacing={4}
-        direction="column"
-        align="center"
-      >
+      <Stack id="responsive-tab" spacing={4} direction="column" align="center">
         <NavLink to="/" end id="tabLink0">
           <Button colorScheme="gray" variant="outline" size="md">
             Home

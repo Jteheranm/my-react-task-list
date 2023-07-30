@@ -1,14 +1,20 @@
 import PropTypes from "prop-types";
 import Task from "./Task";
-import { Accordion } from "@chakra-ui/react";
+import { Accordion, useColorMode } from "@chakra-ui/react";
 import styles from "../assets/styles/TaskList.module.css";
 
 function TaskList({ taskList, onComplete, onDelete }) {
   const taskListQantity = taskList.length;
   const completedTaskList = taskList.filter((task) => task.isCompleted).length;
 
+  const { colorMode } = useColorMode();
+
   return (
-    <section className={styles.taskList}>
+    <section
+      className={`${styles.taskList} ${
+        colorMode === "light" ? styles.light : styles.dark
+      }`}
+    >
       <header className={styles.header}>
         <div>
           <p>Crear tarea</p>

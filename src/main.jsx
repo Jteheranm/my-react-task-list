@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { extendTheme, ChakraProvider } from '@chakra-ui/react';
+import { extendTheme, ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import HomePage from "./pages/Homepage";
 import TasksPage from "./pages/TasksPage";
 import SobreNosotrosPage from "./pages/SobreNosotrosPage";
@@ -45,12 +45,19 @@ const colors = {
     100: '#b54eb3',
   },
 }
-const theme = extendTheme({ colors })
+const config = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+}
+const theme = extendTheme({ colors, config })
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ChakraProvider theme={theme}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </ChakraProvider>
+  <>
+    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    <ChakraProvider theme={theme}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </ChakraProvider>
+  </>
 );
